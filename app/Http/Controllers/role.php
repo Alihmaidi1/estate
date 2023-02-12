@@ -83,14 +83,10 @@ class role extends Controller
 
         }
 
-
-
     }
 
-
-
+    
     public function getrole(getrole $request){
-
 
         try{
 
@@ -102,10 +98,6 @@ class role extends Controller
             return response()->json(["message"=>"we have error"],500);
 
         }
-
-
-
-
 
     }
 

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\admin;
+use App\Http\Controllers\api\country;
 use App\Http\Controllers\role;
 
 Route::post("/admin/login",[admin::class,"login"]);
@@ -22,4 +23,14 @@ Route::group(["middleware"=>"auth:api"],function(){
     Route::post("/admin/deleterole",[role::class,"deleterole"])->middleware("can:role");
     
 
+
+
+    Route::post("/admin/addcountry",[country::class,"store"])->middleware("can:country");
+    Route::post("/admin/editcountry",[country::class,"update"])->middleware("can:country");
+    Route::post("/admin/deletecountry",[country::class,"deletecountry"])->middleware("can:country");
+    
+
 });
+
+Route::get("/admin/getallcountry",[country::class,"getallcountry"]);
+Route::get("/admin/getcountry",[country::class,"getcountry"]);
