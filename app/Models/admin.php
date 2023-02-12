@@ -14,4 +14,11 @@ class admin extends  Authenticatable
     public $fillable = ["name","password","permission","email"];
     public $hidden = ["created_at","updated_at","password"];
 
+    public function getPermissionAttribute($value){
+
+        return json_decode($value);
+
+    }
+
+
 }
