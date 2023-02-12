@@ -36,7 +36,7 @@ class AuthServiceProvider extends ServiceProvider
 
             Gate::define($permission, function (admin $user) use($permission) {
                 
-                if(in_array($permission,$user->permission)){
+                if(in_array($permission,$user->role->permissions)){
 
                     return true;
 

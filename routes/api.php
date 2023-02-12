@@ -15,7 +15,11 @@ Route::group(["middleware"=>"auth:api"],function(){
 
 
 
-    Route::post("/admin/addrole",[role::class,"store"]);
+    Route::post("/admin/addrole",[role::class,"store"])->middleware("can:role");
+    Route::get("/admin/getallrole",[role::class,"getallrole"])->middleware("can:role");
+    Route::post("/admin/editrole",[role::class,"update"])->middleware("can:role");
+    Route::get("/admin/getrole",[role::class,"getrole"])->middleware("can:role");
+    Route::post("/admin/deleterole",[role::class,"deleterole"])->middleware("can:role");
     
 
 });

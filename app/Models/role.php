@@ -23,7 +23,7 @@ class role extends Model
         return $this->hasMany(admin::class,"role_id");
     }
 
-    public function getPermissionAttribute($value){
+    public function getPermissionsAttribute($value){
 
         return json_decode($value);
 
