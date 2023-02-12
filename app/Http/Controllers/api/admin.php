@@ -34,14 +34,50 @@ class admin extends Controller
             return response()->json(["message"=>$ex->getMessage()],500);
         }
 
-
-
         
     }
 
 
 
+    public function getallAdmin(Request $request){
 
+        try{
+            return $this->admin->getAllAdmin();
+        }catch(\Exception $ex){
+
+            return response()->json(["message"=>"we have Error"],500);
+        }
+
+
+
+
+
+    }
+
+
+
+
+
+    public function info(Request $request){
+
+        try{
+
+            return auth("api")->user();
+
+
+        }catch(\Exception $ex){
+
+
+
+            return response()->json(["message"=>"we have Error"],500);
+
+
+        }
+
+
+
+
+    }
 
 
 }

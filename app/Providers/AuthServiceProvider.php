@@ -4,6 +4,7 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 
+use App\Models\admin;
 use App\Models\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -33,7 +34,7 @@ class AuthServiceProvider extends ServiceProvider
         $permissions = config("permission");
         foreach($permissions as $permission){
 
-            Gate::define($permission, function (User $user) use($permission) {
+            Gate::define($permission, function (admin $user) use($permission) {
                 
                 if(in_array($permission,$user->permission)){
 

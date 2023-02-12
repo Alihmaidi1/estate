@@ -12,6 +12,7 @@ return [
 "auction",
 "unit",
 "offerType",
-"offerProperty"
+"offerProperty",
+"role"
 
 ];

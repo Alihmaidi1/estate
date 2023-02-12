@@ -15,6 +15,14 @@ class adminRepo implements adminRepoInterface{
         return admin::where("email",$email)->firstOrFail();
 
     }
+
     
+    public function getAllAdmin(){
+
+
+        return admin::where("id","!=",auth("api")->user()->id)->get();
+
+
+    }
 
 }
