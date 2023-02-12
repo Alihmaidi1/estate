@@ -11,14 +11,18 @@ class admin extends  Authenticatable
 {
     use HasFactory,HasApiTokens,HasUuids;
     
-    public $fillable = ["name","password","permission","email"];
+    public $fillable = ["name","password","role_id","email"];
     public $hidden = ["created_at","updated_at","password"];
 
-    public function getPermissionAttribute($value){
 
-        return json_decode($value);
 
+
+    public function role(){
+
+
+        return $this->belongsTo(role::class,"role_id");
     }
+
 
 
 }
